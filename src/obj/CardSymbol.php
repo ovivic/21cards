@@ -3,6 +3,9 @@
 if (!defined('ROOT'))
     define ('ROOT', dirname(__FILE__) . '/..');
 
+/**
+ * Class CardSymbol - Constants for a card's symbol
+ */
 class CardSymbol {
     public const NONE = 0;
     public const HEARTS = 1;
@@ -10,6 +13,11 @@ class CardSymbol {
     public const SPADES = 3;
     public const CLUBS = 4;
 
+    /**
+     * Obtains a symbol's name as string
+     * @param int $symbol
+     * @return string
+     */
     public static function toString(int $symbol) : string {
         return match ($symbol) {
             self::NONE => 'NoSymbol',

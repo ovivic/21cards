@@ -3,6 +3,9 @@
 if (!defined('ROOT'))
     define ('ROOT', dirname(__FILE__) . '/..');
 
+/**
+ * Class CardValue - Constants for card's values
+ */
 class CardValue {
     public const NONE = 0;
 
@@ -20,6 +23,11 @@ class CardValue {
     public const QUEEN = 12;
     public const KING = 13;
 
+    /**
+     * Obtains a card's value in a Blackjack Game
+     * @param int $cardValue
+     * @return int
+     */
     public static function value (int $cardValue) : int {
         return match ($cardValue) {
             self::ACE => 1,
@@ -36,6 +44,11 @@ class CardValue {
         };
     }
 
+    /**
+     * Returns the String representation of a card's value
+     * @param int $value
+     * @return string
+     */
     public static function toString (int $value) : string {
         return match ($value) {
             self::ACE => 'Ace',

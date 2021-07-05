@@ -7,7 +7,13 @@ if (!defined('ROOT'))
 
 require_once (ROOT . '/obj/Card.php');
 
+/**
+ * Class Deck - Represents one deck of playing cards ( 52 cards, 4 symbols, 13 values each )
+ */
 class Deck {
+    /**
+     * @var Card[] Array of Cards
+     */
     private array $cards;
 
     private const MIN_INDEX = 0;
@@ -75,14 +81,26 @@ class Deck {
         ];
     }
 
+    /**
+     * Getter
+     * @return Card[]
+     */
     public function getCards(): array {
         return $this->cards;
     }
 
+    /**
+     * Setter
+     * @param array $cards
+     */
     public function setCards(array $cards): void {
         $this->cards = $cards;
     }
 
+    /**
+     * String representation for debugging reasons
+     * @return string
+     */
     #[Pure] public function toString () : string {
         $str = "Cards : [\n";
         foreach($this->cards as $card) {
@@ -91,6 +109,10 @@ class Deck {
         return $str . "]";
     }
 
+    /**
+     * Another string representation for the cards
+     * @return string
+     */
     #[Pure] public function toGameString () : string {
         $str = "Cards : [\n";
         foreach($this->cards as $card) {
@@ -99,6 +121,11 @@ class Deck {
         return $str . "]";
     }
 
+    /**
+     * Shuffle test function for the Deck
+     * @param int $swapCount
+     * @return $this
+     */
     public function shuffle (int $swapCount = 10000) : Deck {
         for ($i = 0; $i < $swapCount; $i++) {
             $leftCard = rand(self::MIN_INDEX, self::MAX_INDEX);

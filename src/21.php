@@ -3,15 +3,9 @@
 if (!defined('ROOT'))
     define ('ROOT', dirname(__FILE__));
 
-require_once (ROOT . '/obj/Deck.php');
-require_once (ROOT . '/obj/Game.php');
+require_once (ROOT . '/obj/MainMenu.php');
 
-//echo $deck->shuffle()->toGameString(), PHP_EOL;
-$game = new Game();
-$game->shuffle();
-$game->addPlayer("John");
-$game->addPlayer("Doe");
-$game->start();
-foreach($game->allPlayers() as $player) {
-    $player->printDeck();
-}
+/// starts the main menu
+$mainMenu = new MainMenu();
+/// give control to the menu
+$mainMenu->takeControl();
