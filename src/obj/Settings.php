@@ -12,7 +12,7 @@ class Settings {
     public const SETTINGS_DECK_COUNT = "deckCount";
     public const SETTINGS_PLAYER_COUNT = "playerCount";
 
-    public const DEFAULT_DECK_COUNT = 0;
+    public const DEFAULT_DECK_COUNT = -1;
     public const DEFAULT_PLAYER_COUNT = 1;
 
     /**
